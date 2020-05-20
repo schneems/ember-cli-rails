@@ -43,8 +43,8 @@ module EmberCli
       @ember ||= begin
         root.join("node_modules", "ember-cli", "bin", "ember").tap do |path|
           puts path.inspect
-          puts path.executable?
-          puts path.method(:executable?).source_location
+          puts "Executable?: #{path.executable?}"
+          puts "Exist?: #{path.exist?}"
           unless path.executable?
             puts "failing"
             puts caller
