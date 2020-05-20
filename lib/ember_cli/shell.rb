@@ -38,8 +38,8 @@ module EmberCli
         run! "#{paths.bundler} install"
       end
 
-      puts "invalid_ember_dependencies?: #{invalid_ember_dependencies?}"
       if invalid_ember_dependencies?
+        puts "invalid_ember_dependencies?: #{true}"
         clean_ember_dependencies!
       end
 
