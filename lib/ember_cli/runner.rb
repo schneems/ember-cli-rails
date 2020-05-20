@@ -23,6 +23,7 @@ module EmberCli
     end
 
     def run!(command)
+      puts "Running command: #{command}"
       run(command).tap do |status|
         unless status.success?
           exit status.exitstatus
