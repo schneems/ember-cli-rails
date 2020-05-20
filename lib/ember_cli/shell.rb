@@ -33,6 +33,9 @@ module EmberCli
     end
 
     def install
+      puts "run source location: "
+      puts method(:run!).source_location
+
       if paths.gemfile.exist?
         run! "#{paths.bundler} install"
       end
