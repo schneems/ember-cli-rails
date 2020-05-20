@@ -46,6 +46,8 @@ module EmberCli
           puts path.executable?
           puts path.method(:executable?).source_location
           unless path.executable?
+            puts "failing"
+            puts caller
             fail DependencyError.new <<-MSG.strip_heredoc
               No `ember-cli` executable found for `#{app_name}`.
 
