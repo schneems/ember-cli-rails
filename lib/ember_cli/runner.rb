@@ -11,6 +11,7 @@ module EmberCli
     end
 
     def run(command)
+      puts "Running command (run): #{command}"
       Open3.popen3(env, command, options) do |stdin, stdout, stderr, process|
         stdin.close
 
@@ -23,7 +24,7 @@ module EmberCli
     end
 
     def run!(command)
-      puts "Running command: #{command}"
+      puts "Running command (run!): #{command}"
       run(command).tap do |status|
         unless status.success?
           exit status.exitstatus

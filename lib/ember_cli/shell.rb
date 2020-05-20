@@ -33,14 +33,18 @@ module EmberCli
     end
 
     def install
+      puts "paths.gemfile.exist?: #{paths.gemfile.exist?}"
       if paths.gemfile.exist?
         run! "#{paths.bundler} install"
       end
 
+      puts "invalid_ember_dependencies?: #{invalid_ember_dependencies?}"
       if invalid_ember_dependencies?
         clean_ember_dependencies!
       end
 
+      puts "paths: #{paths.inspect}"
+      puts "paths.yarn: #{paths.yarn.inspect}"
       if paths.yarn
         run! "#{paths.yarn} install"
       else
